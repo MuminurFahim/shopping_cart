@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <p><br>Fruits:</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price (per Kg)</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Grape</td>
+            <td class="price">$20</td>
+            <td>
+                <button onclick="add_to_cart('Grape', 20)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Pomegranate</td>
+            <td class="price">$10</td>
+            <td>
+                <button onclick="add_to_cart('Pomegranate', 10)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Fig</td>
+            <td class=" price">$30
+            </td>
+            <td>
+                <button onclick="add_to_cart('Fig', 30)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Banana</td>
+            <td class=" price">$1
+            </td>
+            <td>
+                <button onclick="add_to_cart('Banana', 1)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td class=" price">$50
+            </td>
+            <td>
+                <button onclick="add_to_cart('Date', 50)">Add to Cart</button>
+            </td>
+        </tr>
+    </table>
+
+    <p><br>Cart:</p>
+    <table id="cart">
+        <tr>
+            <th>Name</th>
+            <th>Price (per Kg)</th>
+            <th>Action</th>
+        </tr>
+    </table>
+</body>
+
+</html>
