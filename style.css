@@ -1,8 +1,27 @@
-.price {
-    text-align: right;
+body {
+    margin: 1em;
 }
-table, th, td {
+
+button {
+    margin: 1px;
+}
+
+div {
+    margin: auto;
+}
+
+table,
+th,
+td {
     border: 1px solid lightgray;
     border-collapse: collapse;
     padding: 10px;
+}
+
+.num {
+    text-align: right;
+}
+
+#intro {
+    text-align: center;
 }
