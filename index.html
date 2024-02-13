@@ -4,68 +4,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Fruit Shop</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script defer src="script.js"></script>
 </head>
 
 <body>
-    <p><br>Fruits:</p>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price (per Kg)</th>
-            <th>Action</th>
-        </tr>
-        <tr>
-            <td>Grape</td>
-            <td class="price">$20</td>
-            <td>
-                <button onclick="add_to_cart('Grape', 20)">Add to Cart</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Pomegranate</td>
-            <td class="price">$10</td>
-            <td>
-                <button onclick="add_to_cart('Pomegranate', 10)">Add to Cart</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Fig</td>
-            <td class="price">$30
-            </td>
-            <td>
-                <button onclick="add_to_cart('Fig', 30)">Add to Cart</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Banana</td>
-            <td class="price">$1
-            </td>
-            <td>
-                <button onclick="add_to_cart('Banana', 1)">Add to Cart</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Dates</td>
-            <td class="price">$50
-            </td>
-            <td>
-                <button onclick="add_to_cart('Dates', 50)">Add to Cart</button>
-            </td>
-        </tr>
-    </table>
+    <!-- Cart -->
+    <div class="dropdown">
+        <button class="btn btn-warning dropdown-toggle position-relative" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false" data-bs-auto-close="outside">
+            Cart
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                0
+            </span>
+        </button>
+        <ul class="dropdown-menu bg-light">
+            <li>
+                <table id="cart">
+                    <tr>
+                        <th>Items</th>
+                        <th>Weights</th>
+                        <th>Prices</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr id="Totals">
+                        <th>Total</th>
+                        <th class="num"><span id="TotalWeights">0</span> Kg</th>
+                        <th class="num">$<span id="TotalPrices">0</span></th>
+                        <th>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="">Remove All</button>
+                        </th>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
 
-    <p><br>Cart:</p>
-    <table id="cart">
-        <tr>
-            <th>Name</th>
-            <th>Price (per Kg)</th>
-            <th>Action</th>
-        </tr>
-    </table>
+    <!-- Fruits -->
+    <h4 id="intro">Fresh Fruits</h4> <br>
+    <div class="card mb-3 bg-light" style="max-width: 465px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="images/Dates.jpg" class="img-fluid rounded-start" alt="Dates">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Dates</h5>
+                    <p class="card-text">
+                        Price: $<span id="DatesPrice">50</span>/Kg <br>
+                        Available: <span id="DatesAvailable">9</span> Kg <br>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Dates', 1)">
+                            +</button>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Dates', -1)">
+                            -</button> <br><br>
+                        <span id="DatesWeight">0</span> Kg - $<span id="DatesTotal">0</span> <br>
+                        <button id="DatesButton" type="button" class="btn btn-primary btn-sm"
+                            onclick="add_to_cart('Dates')">
+                            Add to Cart
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 bg-light" style="max-width: 465px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="images/Fig.jpg" class="img-fluid rounded-start" alt="Fig">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Fig</h5>
+                    <p class="card-text">
+                        Price: $<span id="FigPrice">30</span>/Kg <br>
+                        Available: <span id="FigAvailable">9</span> Kg <br>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Fig', 1)">
+                            +</button>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Fig', -1)">
+                            -</button> <br><br>
+                        <span id="FigWeight">0</span> Kg - $<span id="FigTotal">0</span> <br>
+                        <button id="FigButton" type="button" class="btn btn-primary btn-sm"
+                            onclick="add_to_cart('Fig')">
+                            Add to Cart
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 bg-light" style="max-width: 465px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="images/Grape.jpg" class="img-fluid rounded-start" alt="Grape">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Grape</h5>
+                    <p class="card-text">
+                        Price: $<span id="GrapePrice">20</span>/Kg <br>
+                        Available: <span id="GrapeAvailable">9</span> Kg <br>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Grape', 1)">
+                            +</button>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Grape', -1)">
+                            -</button> <br><br>
+                        <span id="GrapeWeight">0</span> Kg - $<span id="GrapeTotal">0</span> <br>
+                        <button id="GrapeButton" type="button" class="btn btn-primary btn-sm"
+                            onclick="add_to_cart('Grape')">
+                            Add to Cart
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 bg-light" style="max-width: 465px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="images/Pomegranate.jpg" class="img-fluid rounded-start" alt="Pomegranate">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Pomegranate</h5>
+                    <p class="card-text">
+                        Price: $<span id="PomegranatePrice">10</span>/Kg <br>
+                        Available: <span id="PomegranateAvailable">9</span> Kg <br>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Pomegranate', 1)">
+                            +</button>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Pomegranate', -1)">
+                            -</button> <br><br>
+                        <span id="PomegranateWeight">0</span> Kg - $<span id="PomegranateTotal">0</span> <br>
+                        <button id="PomegranateButton" type="button" class="btn btn-primary btn-sm"
+                            onclick="add_to_cart('Pomegranate')">
+                            Add to Cart
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 bg-light" style="max-width: 465px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="images/Banana.jpg" class="img-fluid rounded-start" alt="Banana">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Banana</h5>
+                    <p class="card-text">
+                        Price: $<span id="BananaPrice">1</span>/Kg <br>
+                        Available: <span id="BananaAvailable">9</span> Kg <br>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Banana', 1)">
+                            +</button>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="increase('Banana', -1)">
+                            -</button> <br><br>
+                        <span id="BananaWeight">0</span> Kg - $<span id="BananaTotal">0</span> <br>
+                        <button id="BananaButton" type="button" class="btn btn-primary btn-sm"
+                            onclick="add_to_cart('Banana')">
+                            Add to Cart
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
